@@ -63,7 +63,7 @@ function calculateScore() {
         case 'Partial Spot Landing (10)':
             score += 10;
             break
-        case 'Full Spot Landing (10)':
+        case 'Full Spot Landing (20)':
             score += 20;
             break
 
