@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VEX Scoring Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+  <h1>VEX Scoring Calculator</h1>
+
+  <div>
+    <label>Sensor Uses (max 3): </label>
+    <button onclick="adjustValue('sensor', -1)">-</button>
+    <span id="sensor">0</span>
+    <button onclick="adjustValue('sensor', 1)">+</button>
+  </div>
+
+  <div>
+    <label>Orange Balls Knocked Off (max 9): </label>
+    <button onclick="adjustValue('orangeBalls', -1)">-</button>
+    <span id="orangeBalls">0</span>
+    <button onclick="adjustValue('orangeBalls', 1)">+</button>
+  </div>
+
+  <div>
+    <label>Balls in Goal 1 (10pts each): </label>
+    <button onclick="adjustValue('goal1Balls', -1)">-</button>
+    <span id="goal1Balls">0</span>
+    <button onclick="adjustValue('goal1Balls', 1)">+</button>
+    <label>Bonus Balls: </label>
+    <button onclick="adjustValue('bonusGoal1', -1)">-</button>
+    <span id="bonusGoal1">0</span>
+    <button onclick="adjustValue('bonusGoal1', 1)">+</button>
+  </div>
+
+  <div>
+    <label>Balls in Goal 2 (5pts each): </label>
+    <button onclick="adjustValue('goal2Balls', -1)">-</button>
+    <span id="goal2Balls">0</span>
+    <button onclick="adjustValue('goal2Balls', 1)">+</button>
+    <label>Bonus Balls: </label>
+    <button onclick="adjustValue('bonusGoal2', -1)">-</button>
+    <span id="bonusGoal2">0</span>
+    <button onclick="adjustValue('bonusGoal2', 1)">+</button>
+  </div>
+
+  <div>
+    <label>Balls in Goal 3 (2pts each): </label>
+    <button onclick="adjustValue('goal3Balls', -1)">-</button>
+    <span id="goal3Balls">0</span>
+    <button onclick="adjustValue('goal3Balls', 1)">+</button>
+    <label>Bonus Balls: </label>
+    <button onclick="adjustValue('bonusGoal3', -1)">-</button>
+    <span id="bonusGoal3">0</span>
+    <button onclick="adjustValue('bonusGoal3', 1)">+</button>
+  </div>
+
+  <div>
+    <label>Noise-Activated Switches (max 5): </label>
+    <button onclick="adjustValue('switches', -1)">-</button>
+    <span id="switches">0</span>
+    <button onclick="adjustValue('switches', 1)">+</button>
+  </div>
+
+  <button onclick="calculateScore()">Calculate Score</button>
+  <h2>Total Score: <span id="total-score">0</span></h2>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
