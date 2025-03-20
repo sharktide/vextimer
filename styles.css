@@ -106,7 +106,7 @@ button:hover {
 }
 
 /* Flex alignment for labels, values, and buttons */
-div {
+.containerer div {
     display: flex;
     align-items: center;
     justify-content: space-between; /* Buttons will now align horizontally */
@@ -194,4 +194,5 @@ h2 {
 
 p {
     margin-top: 10px;
+    padding: 10px;
 }

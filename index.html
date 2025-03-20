@@ -7,25 +7,27 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <div class="intro">
+    <h1>VEX IQ Scoring Calculator (Q4 2025)</h1>
+  </div>
   <div class="container">
-  <h1>VEX Scoring Calculator</h1>
-
   <div>
-    <label>Sensor Uses (max 3): </label>
+    <h2 style="font-size: 50px"><span id="total-score">0</span></h2>
+    <label>Sensor Uses (max 3) -----------</label>
     <button onclick="adjustValue('sensor', -1)">-</button>
     <span id="sensor">0</span>
     <button onclick="adjustValue('sensor', 1)">+</button>
   </div>
 
   <div>
-    <label>Orange Balls Knocked Off (max 9): </label>
+    <label>Balls in Zone 1 (1pt each) -----</label>
     <button onclick="adjustValue('orangeBalls', -1)">-</button>
     <span id="orangeBalls">0</span>
     <button onclick="adjustValue('orangeBalls', 1)">+</button>
   </div>
 
   <div>
-    <label>Balls in Goal 1 (10pts each): </label>
+    <label>Balls in Zone 4 (10pts each) --</label>
     <button onclick="adjustValue('goal1Balls', -1)">-</button>
     <span id="goal1Balls">0</span>
     <button onclick="adjustValue('goal1Balls', 1)">+</button>
@@ -36,7 +38,7 @@
   </div>
 
   <div>
-    <label>Balls in Goal 2 (5pts each): </label>
+    <label>Balls in Zone 3 (5pts each) ---</label>
     <button onclick="adjustValue('goal2Balls', -1)">-</button>
     <span id="goal2Balls">0</span>
     <button onclick="adjustValue('goal2Balls', 1)">+</button>
@@ -47,7 +49,7 @@
   </div>
 
   <div>
-    <label>Balls in Goal 3 (2pts each): </label>
+    <label>Balls in Zone 2 (2pts each) ---</label>
     <button onclick="adjustValue('goal3Balls', -1)">-</button>
     <span id="goal3Balls">0</span>
     <button onclick="adjustValue('goal3Balls', 1)">+</button>
@@ -58,13 +60,29 @@
   </div>
 
   <div>
-    <label>Noise-Activated Switches (max 5): </label>
+    <label>Activated Switches (max 3) ---</label>
     <button onclick="adjustValue('switches', -1)">-</button>
     <span id="switches">0</span>
     <button onclick="adjustValue('switches', 1)">+</button>
   </div>
 
-  <h2>Total Score: <span id="total-score">0</span></h2>
+  <div>
+    <label>Released Bonus Balls (Max 3) </label>
+    <button onclick="adjustValue('bonusballs', -1)">-</button>
+    <span id="bonusballs">0</span>
+    <button onclick="adjustValue('bonusballs', 1)">+</button>
+  </div>
+
+  <div>
+    <label>Drone Landing</label>
+    <select id="droneland">
+      <option>No Landing (0)</option>
+      <option>Landing (5)</option>
+      <option>Partial Spot Landing (10)</option>
+      <option>Full Spot Landing (20)</option>
+    </select>
+  </div>
+
   </div>
 
   <script src="script.js"></script>
