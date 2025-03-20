@@ -22,6 +22,8 @@ const maxValues = {
     if (currentValue > maxValues[field]) currentValue = maxValues[field];
   
     valueElement.textContent = currentValue;
+    calculateScore();
+
   }
   
   function calculateScore() {
