@@ -54,21 +54,24 @@ function calculateScore() {
     // Noise-Activated Switches
     score += switches * 10;
     score += bonusballs * 10;
-    switch (document.getElementById('droneland').value) {
-        case 'No Landing (0)':
-            break
-        case 'Landing (5)':
-            score += 5;
-            break
-        case 'Partial Spot Landing (10)':
-            score += 10;
-            break
-        case 'Full Spot Landing (20)':
-            score += 20;
-            break
-
+    if (document.getElementById('dronefreed').checked) {
+        score += 20
+        switch (document.getElementById('droneland').value) {
+            case 'No Landing (0)':
+                break
+            case 'Landing (5)':
+                score += 5;
+                break
+            case 'Partial Spot Landing (10)':
+                score += 10;
+                break
+            case 'Full Spot Landing (20)':
+                score += 20;
+                break
+    
+        }
     }
-  
+
     // Update total score
     document.getElementById('total-score').textContent = score;
 }
@@ -76,3 +79,19 @@ function calculateScore() {
 document.getElementById('droneland').addEventListener('input', function() {
     calculateScore()
 })
+
+document.getElementById('dronefreed').addEventListener('input', function() {
+    console.log('input')
+    if (document.getElementById('dronefreed').checked) {
+        console.log('true')
+        document.getElementById('hidepossible').style.visibility = 'visible'
+        document.getElementById('droneland').value = 'No Landing (0)'
+    } else {
+        document.getElementById('hidepossible').style.visibility = 'hidden'
+        document.getElementById('droneland').value = 'No Landing (0)'
+    }
+    calculateScore()
+})
+
+document.getElementById('hidepossible').style.visibility = 'hidden'
+document.getElementById('droneland').value = 'No Landing (0)'

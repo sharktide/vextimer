@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VEX Scoring Calculator</title>
+  <link rel="stylesheet" href="teamwork.css">
+</head>
+<body>
+  <div class="intro">
+    <h1>VEX IQ Scoring Calculator (Q4 2025)</h1>
+  </div>
+  <nav>
+    <a href="/vextimer">Singles Calculator</a>
+    <a href="/vextimer/teamwork"><b>Teamwork Calculator</b></a>
+  </nav>
+  <div class="container">
+    <h2 style="font-size: 50px"><span id="total-score">0</span></h2>
+    <div>
+        <label>Balls in Zone 1 (1pt each) -----</label>
+        <button onclick="adjustValue('orangeBalls', -1)" class="greenbtn">-</button>
+        <span id="orangeBalls">0</span>
+        <button onclick="adjustValue('orangeBalls', 1)" class="greenbtn">+</button>
+    </div>
+    
+    <div>
+        <label>Released Bonus Balls (Max 5) </label>
+        <button onclick="adjustValue('bonusballs', -1)" class="greenbtn">-</button>
+        <span id="bonusballs">0</span>
+        <button onclick="adjustValue('bonusballs', 1)" class="greenbtn">+</button>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="column">
+    <div class="container">
+        <div>
+            <label>Sensor Uses (max 3) -----------</label>
+            <button onclick="adjustValue('sensor_red', -1)" class="redbtn">-</button>
+            <span id="sensor_red">0</span>
+            <button onclick="adjustValue('sensor_red', 1)" class="redbtn">+</button>
+        </div>
+
+        <div>
+            <label>Balls in Zone 4 (10pts each) --</label>
+            <button onclick="adjustValue('goal1Balls_red', -1)" class="redbtn">-</button>
+            <span id="goal1Balls_red">0</span>
+            <button onclick="adjustValue('goal1Balls_red', 1)" class="redbtn">+</button>
+            <label>Bonus Balls: </label>
+            <button onclick="adjustValue('bonusGoal1_red', -1)" class="redbtn">-</button>
+            <span id="bonusGoal1_red">0</span>
+            <button onclick="adjustValue('bonusGoal1_red', 1)" class="redbtn">+</button>
+        </div>
+
+        <div>
+            <label>Balls in Zone 3 (5pts each) ---</label>
+            <button onclick="adjustValue('goal2Balls_red', -1)" class="redbtn">-</button>
+            <span id="goal2Balls_red">0</span>
+            <button onclick="adjustValue('goal2Balls_red', 1)" class="redbtn">+</button>
+            <label>Bonus Balls: </label>
+            <button onclick="adjustValue('bonusGoal2_red', -1)" class="redbtn">-</button>
+            <span id="bonusGoal2_red">0</span>
+            <button onclick="adjustValue('bonusGoal2_red', 1)" class="redbtn">+</button>
+        </div>
+
+        <div>
+            <label>Balls in Zone 2 (2pts each) ---</label>
+            <button onclick="adjustValue('goal3Balls_red', -1)" class="redbtn">-</button>
+            <span id="goal3Balls_red">0</span>
+            <button onclick="adjustValue('goal3Balls_red', 1)" class="redbtn">+</button>
+            <label>Bonus Balls: </label>
+            <button onclick="adjustValue('bonusGoal3_red', -1)" class="redbtn">-</button>
+            <span id="bonusGoal3_red">0</span>
+            <button onclick="adjustValue('bonusGoal3_red', 1)" class="redbtn">+</button>
+        </div>
+
+        <div>
+            <label>Activated Switches (max 3) ---</label>
+            <button onclick="adjustValue('switches_red', -1)" class="redbtn">-</button>
+            <span id="switches_red">0</span>
+            <button onclick="adjustValue('switches_red', 1)" class="redbtn">+</button>
+        </div>
+        <div>
+            <label for="dronefreed_red">Drone Freed?</label>
+            <input type="checkbox" id="dronefreed_red" name="dronefreed_red" value="False"><br>
+        </div>
+        
+        <div id="hidepossible_red">
+            <label>Drone Landing</label>
+            <select id="droneland_red">
+                <option>No Landing (0)</option>
+                <option>Landing (5)</option>
+                <option>Partial Spot Landing (10)</option>
+                <option>Full Spot Landing (20)</option>
+            </select>
+        </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="container">
+            <div>
+                <label>Sensor Uses (max 3) -----------</label>
+                <button onclick="adjustValue('sensor_blue', -1)" class="bluebtn">-</button>
+                <span id="sensor_blue">0</span>
+                <button onclick="adjustValue('sensor_blue', 1)" class="bluebtn">+</button>
+            </div>
+            <div>
+                <label>Balls in Zone 4 (10pts each) --</label>
+                <button onclick="adjustValue('goal1Balls_blue', -1)" class="bluebtn">-</button>
+                <span id="goal1Balls_blue">0</span>
+                <button onclick="adjustValue('goal1Balls_blue', 1)" class="bluebtn">+</button>
+                <label>Bonus Balls: </label>
+                <button onclick="adjustValue('bonusGoal1_blue', -1)" class="bluebtn">-</button>
+                <span id="bonusGoal1_blue">0</span>
+                <button onclick="adjustValue('bonusGoal1_blue', 1)" class="bluebtn">+</button>
+            </div>
+        
+            <div>
+                <label>Balls in Zone 3 (5pts each) ---</label>
+                <button onclick="adjustValue('goal2Balls_blue', -1)" class="bluebtn">-</button>
+                <span id="goal2Balls_blue">0</span>
+                <button onclick="adjustValue('goal2Balls_blue', 1)" class="bluebtn">+</button>
+                <label>Bonus Balls: </label>
+                <button onclick="adjustValue('bonusGoal2_blue', -1)" class="bluebtn">-</button>
+                <span id="bonusGoal2_blue">0</span>
+                <button onclick="adjustValue('bonusGoal2_blue', 1)" class="bluebtn">+</button>
+            </div>
+        
+            <div>
+                <label>Balls in Zone 2 (2pts each) ---</label>
+                <button onclick="adjustValue('goal3Balls_blue', -1)" class="bluebtn">-</button>
+                <span id="goal3Balls_blue">0</span>
+                <button onclick="adjustValue('goal3Balls_blue', 1)" class="bluebtn">+</button>
+                <label>Bonus Balls: </label>
+                <button onclick="adjustValue('bonusGoal3_blue', -1)" class="bluebtn">-</button>
+                <span id="bonusGoal3_blue">0</span>
+                <button onclick="adjustValue('bonusGoal3_blue', 1)" class="bluebtn">+</button>
+            </div>
+        
+            <div>
+                <label>Activated Switches (max 3) ---</label>
+                <button onclick="adjustValue('switches_blue', -1)" class="bluebtn">-</button>
+                <span id="switches_blue">0</span>
+                <button onclick="adjustValue('switches_blue', 1)" class="bluebtn">+</button>
+            </div>
+            <div>
+                <label for="dronefreed_blue">Drone Freed?</label>
+                <input type="checkbox" id="dronefreed_blue" name="dronefreed_blue" value="False"><br>
+            </div>
+            
+            <div id="hidepossible_blue">
+                <label>Drone Landing</label>
+                <select id="droneland_blue">
+                    <option>No Landing (0)</option>
+                    <option>Landing (5)</option>
+                    <option>Partial Spot Landing (10)</option>
+                    <option>Full Spot Landing (20)</option>
+                </select>
+            </div>
+    
+        </div>
+  </div>
+
+  <script src="teamwork.js"></script>
+</body>
+</html>
