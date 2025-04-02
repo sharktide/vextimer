@@ -129,31 +129,9 @@ document.getElementById('droneland_blue').addEventListener('input', function() {
 
 
 document.getElementById('dronefreed_red').addEventListener('input', function() {
-    console.log('input')
-    if (document.getElementById('dronefreed_red').checked) {
-        console.log('true')
-        document.getElementById('hidepossible_red').style.visibility = 'visible'
-        document.getElementById('droneland_red').value = 'No Landing (0)'
-    } else {
-        document.getElementById('hidepossible_red').style.visibility = 'hidden'
-        document.getElementById('droneland_red').value = 'No Landing (0)'
-    }
     calculateScore()
 })
 document.getElementById('dronefreed_blue').addEventListener('input', function() {
-    console.log('input')
-    if (document.getElementById('dronefreed_blue').checked) {
-        console.log('true')
-        document.getElementById('hidepossible_blue').style.visibility = 'visible'
-        document.getElementById('droneland_blue').value = 'No Landing (0)'
-    } else {
-        document.getElementById('hidepossible_blue').style.visibility = 'hidden'
-        document.getElementById('droneland_blue').value = 'No Landing (0)'
-    }
+
     calculateScore()
 })
-
-document.getElementById('hidepossible_red').style.visibility = 'hidden'
-document.getElementById('droneland_red').value = 'No Landing (0)'
-document.getElementById('hidepossible_blue').style.visibility = 'hidden'
-document.getElementById('droneland_blue').value = 'No Landing (0)'

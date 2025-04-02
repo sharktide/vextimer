@@ -81,17 +81,5 @@ document.getElementById('droneland').addEventListener('input', function() {
 })
 
 document.getElementById('dronefreed').addEventListener('input', function() {
-    console.log('input')
-    if (document.getElementById('dronefreed').checked) {
-        console.log('true')
-        document.getElementById('hidepossible').style.visibility = 'visible'
-        document.getElementById('droneland').value = 'No Landing (0)'
-    } else {
-        document.getElementById('hidepossible').style.visibility = 'hidden'
-        document.getElementById('droneland').value = 'No Landing (0)'
-    }
     calculateScore()
 })
-
-document.getElementById('hidepossible').style.visibility = 'hidden'
-document.getElementById('droneland').value = 'No Landing (0)'
