@@ -56,20 +56,21 @@ function calculateScore() {
     score += bonusballs * 10;
     if (document.getElementById('dronefreed').checked) {
         score += 20
-        switch (document.getElementById('droneland').value) {
-            case 'No Landing (0)':
-                break
-            case 'Landing (5)':
-                score += 5;
-                break
-            case 'Partial Spot Landing (10)':
-                score += 10;
-                break
-            case 'Full Spot Landing (20)':
-                score += 20;
-                break
+    }
     
-        }
+    switch (document.getElementById('droneland').value) {
+        case 'No Landing (0)':
+            break
+        case 'Landing (5)':
+            score += 5;
+            break
+        case 'Partial Spot Landing (10)':
+            score += 10;
+            break
+        case 'Full Spot Landing (20)':
+            score += 20;
+            break
+
     }
 
     // Update total score
