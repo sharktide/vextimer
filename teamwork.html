@@ -15,6 +15,18 @@
     <a href="/vextimer/teamwork"><b>Teamwork Calculator</b></a>
   </nav>
   <div class="container">
+    <div class="timer">
+        <svg width="200" height="200">
+          <circle cx="100" cy="100" r="90" class="circle circle-bg" />
+          <circle cx="100" cy="100" r="90" class="circle circle-progress" />
+        </svg>
+        <div class="time-text" id="time-display">01:00</div>
+      </div>
+      <div class="timer-controls">
+        <button onclick="startTimer()">Start</button>
+        <button onclick="pauseTimer()">Pause/Resume</button>
+        <button onclick="resetTimer()">Reset</button>
+    </div>
     <h2 style="font-size: 50px"><span id="total-score">0</span></h2>
     <div>
         <label>Balls in Zone 1 (1pt each) -----</label>
@@ -162,5 +174,92 @@
   </div>
 
   <script src="teamwork.js"></script>
+  <script>
+    const phases = [
+      { duration: 60, color: 'red', startSound: true, endSound: true },
+      { duration: 60, color: 'gray', startSound: false, endSound: false },
+      { duration: 90, color: 'blue', startSound: true, endSound: true, switchSounds: [65, 55, 35, 25] }
+    ];
+
+    let currentPhase = 0;
+    let timer = null;
+    let remaining = 0;
+    let isPaused = false;
+    let circle = null;
+    let timeDisplay = null;
+
+    window.onload = function () {
+      circle = document.querySelector('.circle-progress');
+      timeDisplay = document.getElementById('time-display');
+    }
+
+    function playSound(id) {
+      const sound = document.getElementById(id);
+      if (sound) sound.play();
+    }
+
+    function formatTime(seconds) {
+      const m = Math.floor(seconds / 60).toString().padStart(2, '0');
+      const s = (seconds % 60).toString().padStart(2, '0');
+      return `${m}:${s}`;
+    }
+
+    function updateCircle(seconds, total) {
+      const offset = 565 - (seconds / total) * 565;
+      circle.style.strokeDashoffset = offset;
+    }
+
+    function runPhase() {
+      const phase = phases[currentPhase];
+      remaining = phase.duration;
+      circle.style.stroke = phase.color;
+
+      if (phase.startSound) playSound('start-sound');
+
+      updateCircle(remaining, phase.duration);
+      timeDisplay.textContent = formatTime(remaining);
+
+      timer = setInterval(() => {
+        if (!isPaused) {
+          remaining--;
+          updateCircle(remaining, phase.duration);
+          timeDisplay.textContent = formatTime(remaining);
+
+          if (phase.switchSounds && phase.switchSounds.includes(remaining)) {
+            playSound('switch-sound');
+          }
+
+          if (remaining <= 0) {
+            clearInterval(timer);
+            if (phase.endSound) playSound('buzzer-sound');
+            currentPhase++;
+            if (currentPhase < phases.length) {
+              setTimeout(runPhase, 1000);
+            }
+          }
+        }
+      }, 1000);
+    }
+
+    function startTimer() {
+      resetTimer();
+      runPhase();
+    }
+
+    function pauseTimer() {
+      isPaused = !isPaused;
+    }
+
+    function resetTimer() {
+      clearInterval(timer);
+      isPaused = false;
+      currentPhase = 0;
+      if (timeDisplay && circle) {
+        timeDisplay.textContent = "01:00";
+        circle.style.strokeDashoffset = 565;
+        circle.style.stroke = 'red';
+      }
+    }
+  </script>
 </body>
 </html>
