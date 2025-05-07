@@ -5,6 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VEX Scoring Calculator</title>
   <link rel="stylesheet" href="teamwork.css">
+  <style>
+    .timer {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      margin: 20px auto;
+    }
+    .circle {
+      stroke-dasharray: 565;
+      stroke-dashoffset: 565;
+      stroke-width: 10;
+      fill: none;
+      transform: rotate(-90deg);
+      transform-origin: center;
+      transition: stroke 0.5s;
+    }
+    .circle-bg {
+      stroke: #ddd;
+    }
+    .circle-progress {
+      stroke: red;
+    }
+    .time-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 2em;
+    }
+    .timer-controls button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1em;
+    }
+  </style>
 </head>
 <body>
   <div class="intro">
