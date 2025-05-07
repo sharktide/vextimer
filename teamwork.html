@@ -16,17 +16,22 @@
   </nav>
   <div class="container">
     <div class="timer">
-        <svg width="200" height="200">
-          <circle cx="100" cy="100" r="90" class="circle circle-bg" />
-          <circle cx="100" cy="100" r="90" class="circle circle-progress" />
-        </svg>
-        <div class="time-text" id="time-display">01:00</div>
-      </div>
-      <div class="timer-controls">
-        <button onclick="startTimer()">Start</button>
-        <button onclick="pauseTimer()">Pause/Resume</button>
-        <button onclick="resetTimer()">Reset</button>
-    </div>
+    <svg width="200" height="200">
+      <circle cx="100" cy="100" r="90" class="circle circle-bg" />
+      <circle cx="100" cy="100" r="90" class="circle circle-progress" />
+    </svg>
+    <div class="time-text" id="time-display">01:00</div>
+  </div>
+  <div class="timer-controls">
+    <button onclick="startTimer()">Start</button>
+    <button onclick="pauseTimer()">Pause/Resume</button>
+    <button onclick="resetTimer()">Reset</button>
+  </div>
+
+  <audio id="start-sound" src="start.mp3"></audio>
+  <audio id="buzzer-sound" src="buzzer.mp3"></audio>
+  <audio id="switch-sound" src="switch.mp3"></audio>
+
     <h2 style="font-size: 50px"><span id="total-score">0</span></h2>
     <div>
         <label>Balls in Zone 1 (1pt each) -----</label>
