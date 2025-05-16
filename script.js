@@ -9,7 +9,7 @@ const maxValues = {
     goal3Balls: 7,
     bonusGoal3: 1,
     switches: 3,
-    bonusballs: 3
+    bonusballs: 6
 };
   
 // Adjust values with + and - buttons
