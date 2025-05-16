@@ -5,7 +5,7 @@ const maxValues = {
 
     orangeBalls: 7,
 
-    bonusballs: 5,
+    bonusballs: 6,
 
     goal1Balls_red: 7,
     bonusGoal1_red: 1,
